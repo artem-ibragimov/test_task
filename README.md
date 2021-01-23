@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# Задание
+Разработать одностраничное приложение с одной экранной формой
+Приложение должно предоставлять интерфейс для редактирования справочника сотрудников компании.
+Каждый сотрудник имеет следующий список атрибутов
+Наименование атрибута	Тип значения	Обязательность заполнения
+ФИО	Строка	Да
+Должность	Выбор из справочника(придумать самому)	Да
+Дата рождения	Дата, выбор из календаря	
+Пол	Выбор с помощью радио переключателя с двумя значениями	
+Уволен	Булевский атрибут, редактируется с помощью чек бокса	
+[Дополнительно, не обязательно] Коллеги	Выбор из списка сотрудников. С возможностью мульти выбора	
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Интерфейс должен состоять из панели инструментов с кнопками :
+«Сохранить изменения»
+«Обновить данные»
+«Удалить выбранного сотрудника»
+«Добавить нового сотрудника»
 
-## Available Scripts
+и двух областей:
+Слева список всех сотрудников
+Справа область для редактирования атрибутов сотрудника, выбранного в левой области
 
-In the project directory, you can run:
+Элементы управления
+«Сохранить»
+Как видно из перечня кнопок, все внесенные изменения не должны сразу отправляться на сервер, а должны сохраняться в памяти. Сохранение должно происходить при нажатии на кнопку «Сохранить». Если изменений не было, ток кнопка сохранения должна быть неактивной.
+«Обновить»
+При нажатии на кнопку  «Обновить» должна обновлять данные с сервера. Если при нажатии на обновление есть несохраненные данные, нужно отобразить информационно окно с сообщением что все внесенные изменения будут потеряны и двумя вариантами ответа «Продолжить» и «Отмена»
+«Удалить»
+При нажатии на кнопку «Удалить» должно происходить удаление сотрудника выбранного в левой области. Если ни один сотрудник не выбран, кнопка «Удалить» должна быть неактивной.
+«Добавить»
+При нажатии на кнопку «Добавить» в левой области должен добавляться новый сотрудник, новый сотрудник автоматически должен выбираться в списке.
+«Список сотрудников»
+Список всех сотрудников, с отображением их ФИО. При клике на элемент списка он должен визуально помечаться как выбранный.
+«Карточка сотрудника»
+Область со списком атрибутов и их значений выбранного сотрудника. 
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Хранение данных и взаимодействие с сервером
+Данные необходимо хранить в localstorage браузера.
+Методы по взаимодействию с хранилищем должны быть абстрагированы от реализации самого хранилища
+Стек
+При реализации проекта необходимо использовать следующие технологии:
+yarn/npm в качестве менеджера пакетов
+webpack для сборки проекта
+TypeScript
+React
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Визуальное оформление
+Особых требований к визуальному оформлению не предъявляется. Можно использовать библиотеки визуальных компонентов для ускорения реализации(http://getbootstrap.com/  , http://www.material-ui.com/#/ или другие)
+Результат
+Исходный код тестового задания необходимо разместить на github
+Так же необходимо опубликовать работающее приложение на хостинге и предоставить ссылку, например github-pages.
+Дополнительно
+Если есть желание и возможность можно реализовать дополнительные требования. Их выполнение положительно повлияет на оценку результата выполнения тестового задания.
+Использовать mobx для управления состоянием приложения
+В карточку сотрудника добавить атрибут коллеги (см. таблицу атрибутов сотрудника)
+Реализовать возможность добавления дополнительных атрибутов каждому сотруднику. Т.е. в карточке сотрудника должны появиться отдельная область, в которой можно добавлять доп. атрибуты, с указанием типа их значение (строка, число, дата) и возможностью сохранения их значений. У каждого сотрудника перечень доп. атрибутов свой.
